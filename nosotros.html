@@ -22,10 +22,9 @@
             <ul>
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="nosotros.html">Sobre Nosotros</a></li>
                 <li><a href="testimonios.html">Testimonios</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="#">Login</a></li>
+                <li><a href="login.html">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -87,5 +86,38 @@
             });
         });
     </script>
+    <script>
+        // Script para hacer que los elementos aparezcan al hacer scroll
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll(".fade-in"); // Selecciona los elementos que se animarán
+        
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible"); // Añadir la clase 'visible' cuando el elemento es visible
+                    }
+                });
+            });
+        
+            elements.forEach(element => observer.observe(element)); // Observar cada elemento
+        });
+        
+        // Script para ampliar imágenes al pasar el cursor (hover)
+        document.addEventListener("DOMContentLoaded", function() {
+            const teamMembers = document.querySelectorAll(".team-member");
+        
+            teamMembers.forEach(member => {
+                member.addEventListener("mouseover", function() {
+                    member.style.transform = "scale(1.1)"; // Aumenta el tamaño de la imagen
+                    member.style.transition = "transform 0.3s ease-in-out"; // Transición suave
+                });
+        
+                member.addEventListener("mouseout", function() {
+                    member.style.transform = "scale(1)"; // Restaurar el tamaño original
+                });
+            });
+        });
+        </script>
+        
 </body>
 </html>
